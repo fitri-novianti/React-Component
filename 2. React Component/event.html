@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Pengenalan Event Button Sederhana</title>
+    <script src="https://npmcdn.com/react@15.3.0/dist/react.js"></script>
+	<script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.js"></script>
+	<script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+</head>
+<body>
+
+    <style type="text/css">
+        p { 
+          font-family: sans;
+          font-size: 25pt;
+          color: skyblue;
+          text-align: left: ;;
+        }
+        button{
+          font-family: sans;
+          font-size: 15pt;
+          background-color: black;
+          color: white;
+          text-align: center;
+        }
+        h1 {
+          font-family: sans;
+          font-size: 20pt;
+          color:pink;
+          text-align: left;
+        }
+      </style>
+
+	<div class="content">
+		<p>Simple Event in React (Button)</p>
+	</div>
+
+	<div class="content" id="app"></div>
+
+	
+
+	<script type="text/babel">
+
+
+
+		let Counter = React.createClass({
+			getInitialState: function() {
+				return {count: 0};
+			},
+
+			handleClick: function() {
+				this.setState({count: this.state.count + 5});
+			},
+			
+			render: function() {
+				return (
+					<div>
+						<button onClick={this.handleClick}>Click here to increment 5</button>
+						<h1>{this.state.count}</h1>
+					</div>
+				);
+			}
+		});
+		
+		ReactDOM.render(
+			<Counter/>,
+			document.getElementById('app')
+		);
+	</script>
+</body>
+</html>
